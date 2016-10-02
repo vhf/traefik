@@ -595,8 +595,6 @@ func parseContainer(container dockertypes.ContainerJSON) dockerData {
 	if container.State != nil && container.State.Health != nil {
 		dockerData.Health = container.State.Health.Status
 		log.Errorf("Container %v received health status '%v'", container.Name, container.State.Health.Status)
-	} else {
-		dockerData.Health = "haha"
 	}
 
 	return dockerData
