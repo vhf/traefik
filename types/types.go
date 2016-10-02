@@ -37,6 +37,7 @@ type CircuitBreaker struct {
 type Server struct {
 	URL    string `json:"url,omitempty"`
 	Weight int    `json:"weight"`
+	Health string `json:"health,omitempty"`
 }
 
 // Route holds route configuration.
