@@ -245,6 +245,7 @@ func (provider *Docker) loadDockerConfig(containersInspected []dockerData) *type
 		"getIPAddress":                provider.getIPAddress,
 		"getPort":                     provider.getPort,
 		"getWeight":                   provider.getWeight,
+		"getHealth":                   provider.getHealth,
 		"getDomain":                   provider.getDomain,
 		"getProtocol":                 provider.getProtocol,
 		"getPassHostHeader":           provider.getPassHostHeader,
@@ -460,6 +461,10 @@ func (provider *Docker) getWeight(container dockerData) string {
 		return label
 	}
 	return "1"
+}
+
+func (provider *Docker) getHealth(container dockerData) string {
+	return container.Health
 }
 
 func (provider *Docker) getSticky(container dockerData) string {
