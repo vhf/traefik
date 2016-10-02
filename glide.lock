@@ -98,7 +98,7 @@ imports:
   - registry
   - runconfig/opts
 - name: github.com/docker/engine-api
-  version: 62043eb79d581a32ea849645277023c550732e52
+  version: 7cf26e0abb9d1c65d3dcfac41c9685541b9d4e6d
   subpackages:
   - client
   - client/transport
