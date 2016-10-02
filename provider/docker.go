@@ -383,6 +383,7 @@ func (provider *Docker) containerFilter(container dockerData) bool {
 	}
 
 	if container.Health != "" && container.Health != "healthy" {
+		log.Errorf("Container %v pruned because of health status '%v'", container.Name, container.Health)
 		return false
 	}
 
@@ -588,6 +589,7 @@ func parseContainer(container dockertypes.ContainerJSON) dockerData {
 
 	if container.State != nil && container.State.Health != nil {
 		dockerData.Health = container.State.Health.Status
+		log.Errorf("Container %v received health status '%v'", container.Name, container.State.Health.Status)
 	}
 
 	return dockerData
